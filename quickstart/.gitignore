@@ -1,30 +1,24 @@
-# TODO ignore entire dashboards dir once Canton dashboards are also coming from Artifactory
-/docker/modules/observability/conf/grafana/dashboards/Participant/pqs.json
+# Stratos cn-quickstart (stripped-down version)
+# =============================================
+# This is a minimal Canton infrastructure deployment.
+# See ARCHITECTURE.md for details on removed components.
 
-# ===========================================
-# Components dropped for minimal deployment
-# ===========================================
-# These components are not used when running infrastructure-only mode
-# (canton, splice, postgres, pqs) without the quickstart demo app.
+# Build artifacts
+/build/
+/.gradle/
+/.daml/
 
-# Backend service (Java Spring Boot app)
-/backend/
-/docker/backend-service/
+# Local environment overrides
+.env.local
 
-# Frontend (React app)
-/frontend/
+# IDE
+.idea/
+.vscode/
+*.iml
 
-# Web UIs (served by nginx, not needed for API-only usage)
-/config/nginx/
+# OS
+.DS_Store
 
-# Observability stack (disabled to save memory)
-/docker/modules/observability/
-
-# Keycloak (using shared-secret auth instead)
-/docker/modules/keycloak/
-
-# Tenant registration (requires backend-service)
-/docker/register-app-user-tenant/
-
-# Integration tests (requires full stack)
-/integration-test/
+# Logs
+*.log
+logs/
