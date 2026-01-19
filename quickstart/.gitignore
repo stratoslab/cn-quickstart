@@ -1,2 +1,30 @@
 # TODO ignore entire dashboards dir once Canton dashboards are also coming from Artifactory
 /docker/modules/observability/conf/grafana/dashboards/Participant/pqs.json
+
+# ===========================================
+# Components dropped for minimal deployment
+# ===========================================
+# These components are not used when running infrastructure-only mode
+# (canton, splice, postgres, pqs) without the quickstart demo app.
+
+# Backend service (Java Spring Boot app)
+/backend/
+/docker/backend-service/
+
+# Frontend (React app)
+/frontend/
+
+# Web UIs (served by nginx, not needed for API-only usage)
+/config/nginx/
+
+# Observability stack (disabled to save memory)
+/docker/modules/observability/
+
+# Keycloak (using shared-secret auth instead)
+/docker/modules/keycloak/
+
+# Tenant registration (requires backend-service)
+/docker/register-app-user-tenant/
+
+# Integration tests (requires full stack)
+/integration-test/

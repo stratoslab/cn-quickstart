@@ -1,0 +1,13 @@
+# Minimal resource constraints override
+# Reduces memory limits to fit within 8GB total
+services:
+  postgres:
+    mem_limit: 1536m
+  canton:
+    mem_limit: 2g
+    environment:
+      _JAVA_OPTIONS: "-XX:-UseCompressedOops -Xms256m -Xmx1792m"
+  splice:
+    mem_limit: 2g
+    environment:
+      _JAVA_OPTIONS: "-XX:-UseCompressedOops -Xms256m -Xmx1792m"

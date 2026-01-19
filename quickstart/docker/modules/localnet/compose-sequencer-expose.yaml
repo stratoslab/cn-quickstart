@@ -1,0 +1,6 @@
+# Override to expose sequencer port for external participants
+services:
+  canton:
+    ports:
+      - "5008:5008"  # Sequencer public API
+      - "5007:5007"  # Mediator admin API (optional)

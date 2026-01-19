@@ -1,0 +1,24 @@
+# Add participant2 to the canton and splice containers
+# Usage: Add to DOCKER_COMPOSE_FILES in Makefile or use directly:
+#   docker compose -f compose.yaml -f docker/modules/localnet/compose.yaml \
+#     -f docker/modules/localnet/compose-participant2.yaml ...
+
+services:
+  canton:
+    volumes:
+      # Mount participant2 config
+      - ${LOCALNET_DIR}/conf/canton/participant2:/app/participant2/on
+    ports:
+      # participant2 ports (5xxx pattern)
+      - "5901:5901"  # Ledger API
+      - "5902:5902"  # Admin API
+      - "5975:5975"  # JSON API
+      - "5900:5900"  # Health HTTP
+
+  splice:
+    volumes:
+      # Mount participant2 splice config
+      - ${LOCALNET_DIR}/conf/splice/participant2:/app/participant2/on
+    ports:
+      # participant2 validator API
+      - "5903:5903"  # Validator Admin API
